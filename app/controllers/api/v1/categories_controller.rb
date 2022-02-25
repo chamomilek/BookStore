@@ -11,15 +11,36 @@ module Api
         # render json: CategorySerializer.new(@category).serialized_json
       end
 
-      def create
-        category = Category.new(category_params)
+      # # def new
+      # #   @category = Category.new
+      # # end
+      #
+      # def create
+      #   @category = Category.new(category_params)
+      #
+      #   if @category.save
+      #     # render json: CategorySerializer.new(category).serialized_json
+      #     redirect_to @category
+      #   else
+      #      render json: {error: category.errors.messages}, status: 422
+      #     # render :new
+      #   end
+      # end
+      #
+      def new
+        @article = Category.new
+      end
 
-        if category.save
-          render json: CategorySerializer.new(category).serialized_json
+      def create
+        @category = Category.new(category_params)
+
+        if @category.save
+          redirect_to @category
         else
-          render json: {error: category.errors.messages}, status: 422
+          render :new, status: :unprocessable_entity
         end
       end
+
 
       def update
         category = Category.find_by(genre: params[:genre])
