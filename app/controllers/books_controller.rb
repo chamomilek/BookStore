@@ -9,33 +9,47 @@
          @book = Book.find(params[:id])
       end
 
+      def new
+        @book = Book.new
+      end
+
 
       def create
         @book = Book.new(book_params)
         if @book.save
-          render json: BookSerializer.new(@book).serialized_json
+          redirect_to @article
+          # render json: BookSerializer.new(@book).serialized_json
         else
-          render json: {error: @book.errors.messages}, status: 422
+          render :edit, status: :unprocessable_entity
+          # render json: {error: @book.errors.messages}, status: 422
         end
       end
 
+      def edit
+        @book = Book.find(params[:id])
+      end
+
       def update
-        @book = Book.find_by(params[:title])
+        @book = Book.find_by(params[:id])
 
         if @book.update(book_params)
-          render json: BookSerializer.new(@book).serialized_json
+          redirect_to @article
+          # render json: BookSerializer.new(@book).serialized_json
         else
-          render json: {error: @book.errors.messages}, status: 422
+          render :edit
+          # render json: {error: @book.errors.messages}, status: 422
         end
       end
 
       def destroy
-        book = Book.find(params[:id])
-        if book.destroy
-          head :no_content
-        else
-          render json: {error: book.errors.messages}, status: 422
-        end
+        @book = Book.find(params[:id])
+        @books.destroy
+        redirect_to root_path, status: :see_other
+        # if book.destroy
+          # head :no_content
+        # else
+        #   render json: {error: book.errors.messages}, status: 422
+        # end
       end
 
       private

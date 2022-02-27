@@ -28,7 +28,10 @@ books = Book.create(
   [
     {
       title: "Harry Potter",
-      description: "blablabla",
+      description: "Throughout the series, Harry is described as having his father's perpetually untidy black hair,
+his mother's bright green eyes, and a lightning bolt-shaped scar on his forehead.
+He is further described as 'small and skinny for his age' with 'a thin face' and 'knobbly knees',
+ and he wears Windsor glasses.",
       images: "",
       price: 9.10,
       pages: 300,
@@ -36,6 +39,7 @@ books = Book.create(
       dimensions: 100,
       publication_date: 2019,
       weight: 540,
-      category: categories.third
+      id: categories.third
+      # category: categories.third
     }
   ])

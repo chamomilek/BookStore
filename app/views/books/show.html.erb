@@ -1,3 +1,10 @@
 <h1><%= @book.title %></h1>
 
 <p><%= @book.description %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_book_path(@book) %>
+<!--    <td><%#= link_to "Edit", controller: "books", action: "" %></td>-->
+
+  </li>
+</ul>

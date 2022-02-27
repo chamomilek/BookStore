@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # root 'pages#index'
-   root 'api/v1/categories#index'
+   root 'categories#index'
   # namespace :api do
   #   namespace :v1 do
   #     resources :categories, only: [:create, :destroy, :show, :index] do
@@ -20,12 +20,7 @@ Rails.application.routes.draw do
   # get "/categories/create", to: "api/v1/categories#create"
   # get "/categories/:genre", to: "api/v1/categories#show"
 
-
+  resources :categories
    resources :books
-  # get "/books", to: "books#index"
-  # get "/books/show/:id", to: "books#show"
-
-
-  # get "/books/edit", to: "api/v1/books#update"
-
+   
 end

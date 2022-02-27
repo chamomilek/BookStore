@@ -1,0 +1,12 @@
+<h1>Categories</h1>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+<!--   <a href="/categories/<%#= category.genre %>">-->
+        <%#= category.genre %>
+<!--      </a>-->
+      <td><%= link_to category.genre, controller: "books", action: "show", id: category.genre %></td>
+    </li>
+  <% end %>
+</ul>

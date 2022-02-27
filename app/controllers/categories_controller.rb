@@ -1,13 +1,11 @@
-module Api
-  module V1
-    class CategoriesController < ApplicationController
+class CategoriesController < ApplicationController
       def index
         @categories = Category.all
         # render json: CategorySerializer.new(@categories).serialized_json
       end
 
       def show
-        @category = Category.find(params[:genre])
+        @category = Category.find(params[:id])
         # render json: CategorySerializer.new(@category).serialized_json
       end
 
@@ -72,5 +70,3 @@ module Api
       #   @options ||= {include: %i[books]}
       # end
     end
-  end
-end
