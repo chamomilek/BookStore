@@ -6,7 +6,8 @@
       end
 
       def show
-         @book = Book.find(params[:id])
+        # @book = Book.find_by(:category_id => [:category_id])
+        @book = Book.find(params[:id])
       end
 
       def new
@@ -17,11 +18,10 @@
       def create
         @book = Book.new(book_params)
         if @book.save
-          redirect_to @article
-          # render json: BookSerializer.new(@book).serialized_json
+          flash[:notice] = "Book was successfully created."
+          redirect_to @book
         else
-          render :edit, status: :unprocessable_entity
-          # render json: {error: @book.errors.messages}, status: 422
+          render :new, status: :unprocessable_entity
         end
       end
 
@@ -30,26 +30,20 @@
       end
 
       def update
-        @book = Book.find_by(params[:id])
+        @book = Book.find(params[:id])
 
         if @book.update(book_params)
-          redirect_to @article
-          # render json: BookSerializer.new(@book).serialized_json
+          redirect_to @book
         else
-          render :edit
-          # render json: {error: @book.errors.messages}, status: 422
+          render :edit, status: :unprocessable_entity
+
         end
       end
 
       def destroy
         @book = Book.find(params[:id])
-        @books.destroy
-        redirect_to root_path, status: :see_other
-        # if book.destroy
-          # head :no_content
-        # else
-        #   render json: {error: book.errors.messages}, status: 422
-        # end
+        @book.destroy
+        redirect_to books_url, status: :see_other
       end
 
       private
