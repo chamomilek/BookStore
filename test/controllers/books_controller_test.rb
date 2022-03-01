@@ -16,6 +16,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create book" do
+    binding.pry
     assert_difference("Book.count") do
       post books_url, params: { book: { title: "Rails"} }
     end

@@ -39,7 +39,7 @@ He is further described as 'small and skinny for his age' with 'a thin face' and
       dimensions: 100,
       publication_date: 2019,
       weight: 540,
-      id: categories.third
+      category_id: categories.third
       # category: categories.third
     }
   ])

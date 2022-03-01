@@ -6,7 +6,7 @@
 <!--   <a href="/categories/<%#= category.genre %>">-->
         <%#= category.genre %>
 <!--      </a>-->
-      <td><%= link_to category.genre, controller: "books", action: "show", id: category.genre%></td>
+      <td><%= link_to category.genre, controller: "books", action: "show", category_id: category.id%></td>
     </li>
   <% end %>
   <br>

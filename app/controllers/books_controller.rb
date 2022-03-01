@@ -6,14 +6,20 @@
       end
 
       def show
-        # @book = Book.find_by(:category_id => [:category_id])
-        @book = Book.find(params[:id])
+        # @book = Book.find_by(id: params[:id])
+        if params.has_key?(:category_id)
+         @book = Book.find_by(category_id: params[:category_id])
+        else
+          @book = Book.find(params[:id])
+        end
+        # @books = @category.show
+        # @book = Book.find(params[:category_id])
+        # @book = Book.find(params[:id])
       end
 
       def new
         @book = Book.new
       end
-
 
       def create
         @book = Book.new(book_params)
