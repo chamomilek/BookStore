@@ -3,12 +3,11 @@
 <ul>
   <% @categories.each do |category| %>
     <li>
-<!--   <a href="/categories/<%#= category.genre %>">-->
-        <%#= category.genre %>
-<!--      </a>-->
       <td><%= link_to category.genre, controller: "books", action: "show", category_id: category.id%></td>
     </li>
   <% end %>
   <br>
   <%= link_to "New Category", new_category_path %>
+  <br>
+  <%= link_to "All books", :books, param: :book_path%>
 </ul>
