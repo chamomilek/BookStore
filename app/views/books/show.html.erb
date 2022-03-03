@@ -1,6 +1,18 @@
-<h1><%= @book.title %></h1>
 
-<p><%= @book.description %></p>
+<h1><%= @book.first.title%></h1>
+<!--<h1><%#= @book.title%></h1>-->
+<!--<h1><%#= @book.try(:title)%></h1>-->
+<!--<h1><%#= @book.title%></h1>-->
+
+<p><%= @book.first.description %></p>
+<p><%= image_tag src = @book.first.images%></p>
+<p><%= @book.first.price %></p>
+<p><%= @book.first.pages %></p>
+<p><%= @book.first.language %></p>
+<p><%= @book.first.dimensions %></p>
+<p><%= @book.first.publication_date %></p>
+<p><%= @book.first.weight %></p>
+
 
 
 <!--<ul>-->

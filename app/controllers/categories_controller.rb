@@ -9,29 +9,12 @@ class CategoriesController < ApplicationController
         # render json: CategorySerializer.new(@category).serialized_json
       end
 
-      # # def new
-      # #   @category = Category.new
-      # # end
-      #
-      # def create
-      #   @category = Category.new(category_params)
-      #
-      #   if @category.save
-      #     # render json: CategorySerializer.new(category).serialized_json
-      #     redirect_to @category
-      #   else
-      #      render json: {error: category.errors.messages}, status: 422
-      #     # render :new
-      #   end
-      # end
-      #
       def new
-        @article = Category.new
+        @category = Category.new
       end
 
       def create
         @category = Category.new(category_params)
-
         if @category.save
           redirect_to @category
         else

@@ -1,14 +1,21 @@
 <h1>New Category</h1>
 
+
 <%= form_with model: @category do |form| %>
   <div>
     <%= form.label :genre %><br>
     <%= form.text_field :genre %>
+    <%# @category.errors.full_messages_for(:genre).each do |message| %>
+<!--      <div><%#= message %></div>-->
+    <%# end %>
   </div>
 
   <div>
     <%= form.label :image_url %><br>
     <%= form.text_field :image_url %>
+    <%# @category.errors.full_messages_for(:image_url).each do |message| %>
+<!--      <div><%#= message %></div>-->
+    <%# end %>
   </div>
 
   <div>

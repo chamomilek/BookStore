@@ -16,9 +16,11 @@
     <tr>
       <td><%= book.title %></td>
       <td><%= book.description %></td>
-      <td><%= link_to "Show", controller: "books", action: "show", category_id: book.id %></td>
-      <td><%= link_to "Edit", controller: "books", action: "update",  category_id: book.id  %></td>
-      <td><%= link_to "Destroy", controller: "books", action: "destroy", category_id: book.id%></td>
+      <td><%= link_to "Show", controller: "books", action: "show", category_id: book.category_id %></td>
+<!--      <td><%#= link_to "Edit", edit_book_path, category_id: book.category_id  %></td>-->
+
+            <td><%= link_to "Edit", controller: "books", action: "update",  category_id: book.category_id  %></td>
+      <td><%= link_to "Destroy", controller: "books", action: "destroy", category_id: book.category_id%></td>
     </tr>
   <% end %>
   </tbody>
@@ -26,6 +28,7 @@
 
 <br>
 
-<%= link_to "New Book", root_path %>
+<%= link_to "New Book", new_book_path %>
+<%= link_to "Categories", categories_path %>
 
 <%#= link_to "New book", create %>
