@@ -1,7 +1,8 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   # root 'pages#index'
-   root 'categories#index'
+  root 'categories#index'
   # namespace :api do
   #   namespace :v1 do
   #     resources :categories, only: [:create, :destroy, :show, :index] do
@@ -21,5 +22,5 @@ Rails.application.routes.draw do
   # get "/categories/:genre", to: "api/v1/categories#show"
 
   resources :categories, shallow: true
-   resources :books, param: :category_id
+  resources :books, param: :category_id
 end

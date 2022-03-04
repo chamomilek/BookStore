@@ -17,10 +17,8 @@
       <td><%= book.title %></td>
       <td><%= book.description %></td>
       <td><%= link_to "Show", controller: "books", action: "show", category_id: book.category_id %></td>
-<!--      <td><%#= link_to "Edit", edit_book_path, category_id: book.category_id  %></td>-->
-
-            <td><%= link_to "Edit", controller: "books", action: "update",  category_id: book.category_id  %></td>
-      <td><%= link_to "Destroy", controller: "books", action: "destroy", category_id: book.category_id%></td>
+      <td><%= link_to "Edit", controller: "books", category_id: book.id, action: "edit" %></td>
+      <td><%= link_to "Destroy", controller: "books", category_id: book.category_id, action: "destroy"%></td>
     </tr>
   <% end %>
   </tbody>

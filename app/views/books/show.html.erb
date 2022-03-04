@@ -1,18 +1,24 @@
+<%@book.each do |book| %>
+<h1><%= book.title%></h1>
 
-<h1><%= @book.first.title%></h1>
-<!--<h1><%#= @book.title%></h1>-->
-<!--<h1><%#= @book.try(:title)%></h1>-->
-<!--<h1><%#= @book.title%></h1>-->
-
-<p><%= @book.first.description %></p>
-<p><%= image_tag src = @book.first.images%></p>
-<p><%= @book.first.price %></p>
-<p><%= @book.first.pages %></p>
-<p><%= @book.first.language %></p>
-<p><%= @book.first.dimensions %></p>
-<p><%= @book.first.publication_date %></p>
-<p><%= @book.first.weight %></p>
-
+<ul>
+  <label for="description">Description:</label>
+  <%= book.description %><br>
+  <p><%= image_tag src = book.images%></p>
+  <label for="price">Price:</label>
+  <%= book.price %><br>
+  <label for="pages">Pages:</label>
+  <%= book.pages %><br>
+  <label for="language">Language:</label>
+  <%= book.language %><br>
+  <label for="dimensions">Dimensions:</label>
+  <%= book.dimensions %><br>
+  <label for="publications_date">Publication date:</label>
+  <%= book.publication_date %><br>
+  <label for="weight">Weight:</label>
+  <%= book.weight %>
+</ul>
+  <%end %>
 
 
 <!--<ul>-->

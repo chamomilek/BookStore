@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Book < ApplicationRecord
   belongs_to :category
 
@@ -11,5 +13,4 @@ class Book < ApplicationRecord
   # validates :publication_date, presence: true
   # validates :weight, presence: true
   # validates :category_id, presence: true
-
 end
