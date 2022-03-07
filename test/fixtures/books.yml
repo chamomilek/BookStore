@@ -3,7 +3,7 @@
 one:
   title: MyString
   description: MyString
-  images: MyString
+  images: lorem.jpg
   price: 1.5
   pages: 1
   language: MyString
@@ -11,5 +11,17 @@ one:
   publication_date: 2022-02-24 11:09:44
   weight: 1
   category: one
+
+two:
+    title: MyString1
+    description: MyString
+    images: lorem.jpg
+    price: 1.5
+    pages: 1
+    language: MyString
+    dimensions: 1.5
+    publication_date: 2022-02-24 11:09:44
+    weight: 1
+    category: two
 
 

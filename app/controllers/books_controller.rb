@@ -6,10 +6,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    # @book = Book.find_by(id: params[:id])
     @book = if params.key?(:category_id)
               Book.where(category_id: params[:category_id])
-            # @book = Book.find_by(category_id: params[:category_id])
             else
               Book.find(params[:id])
             end
@@ -27,7 +25,6 @@ class BooksController < ApplicationController
       redirect_to books_path
     else
       render :new
-      # , status: @book.errors.messages
     end
   end
 

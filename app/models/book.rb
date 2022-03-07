@@ -3,6 +3,14 @@
 class Book < ApplicationRecord
   belongs_to :category
 
+  validates :title, :description, :images, presence: true
+  validates :title, uniqueness: true
+  validates :images, allow_blank: true, format: {
+    with: /\.(jpg|png)\z/i,
+    message: 'must be a URL for JPG or PNG image.'
+  }
+  validates :price, numericality: { greater_than_or_equal_to: 0.01 }
+
   # validates :title, presence: true, length: {minimum: 2}
   # validates :description, presence: true, length: {minimum: 2}
   # validates :images, presence: true, length: {minimum: 2}

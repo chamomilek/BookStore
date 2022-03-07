@@ -2,8 +2,8 @@
 
 one:
   genre: MyString
-  image_url: MyString
+  image_url: lorem.jpg
 
 two:
-  genre: MyString
-  image_url: MyString
+  genre: MyString1
+  image_url: lorem.jpg
