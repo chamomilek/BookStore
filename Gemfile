@@ -37,6 +37,7 @@ gem 'rspec', '~> 3.5'
 gem 'activerecord'
 gem 'fast_jsonapi'
 gem 'pry', '~> 0.14.1'
+gem 'rubocop', '~> 1.26', require: false
 gem 'webpacker'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

@@ -33,13 +33,9 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    category = Category.find_by(genre: params[:genre])
-
-    if category.destroy
-      head :no_content
-    else
-      render json: { error: category.errors.messages }, status: 422
-    end
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to categories_path, status: :see_other
   end
 
   private

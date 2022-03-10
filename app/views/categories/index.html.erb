@@ -1,11 +1,19 @@
 <h1>Categories</h1>
 
 <ul>
+  <table>
   <% @categories.each do |category| %>
-    <li>
-      <td><%= link_to category.genre, controller: "books", action: "show", category_id: category.id%></td>
-    </li>
+    <tr>
+
+      <td><li><%= link_to category.genre, controller: "books", action: "show", category_id: category.id%></li></td>
+      <td><%= link_to "Destroy", category_path(category), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %></td>
+
+    </tr>
   <% end %>
+  </table>
   <br>
   <%= link_to "New Category", new_category_path %>
   <br>
