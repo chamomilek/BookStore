@@ -32,13 +32,18 @@ gem 'jbuilder'
 source 'https://rubygems.org'
 gem 'nokogiri'
 gem 'rack', '~> 2.0', '>= 2.0.1'
-gem 'rspec', '~> 3.5'
 
 gem 'activerecord'
 gem 'fast_jsonapi'
+gem 'parallel'
 gem 'pry', '~> 0.14.1'
 gem 'rubocop', '~> 1.26', require: false
 gem 'webpacker'
+gem 'rspec', '~> 3.11'
+gem 'rspec-core', '~> 3.11'
+gem 'rspec-expectations', '~> 3.11'
+gem 'rspec-mocks', '~> 3.11'
+gem 'rspec-support', '~> 3.11'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

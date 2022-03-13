@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_224_080_944) do
+ActiveRecord::Schema[7.0].define(version: 20_220_312_095_246) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -32,6 +32,16 @@ ActiveRecord::Schema[7.0].define(version: 20_220_224_080_944) do
     t.index ['category_id'], name: 'index_books_on_category_id'
   end
 
+  create_table 'cards', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
+  create_table 'carts', force: :cascade do |t|
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+  end
+
   create_table 'categories', force: :cascade do |t|
     t.string 'genre'
     t.string 'image_url'
@@ -39,5 +49,15 @@ ActiveRecord::Schema[7.0].define(version: 20_220_224_080_944) do
     t.datetime 'updated_at', null: false
   end
 
+  create_table 'line_items', force: :cascade do |t|
+    t.bigint 'book_id', null: false
+    t.string 'cart'
+    t.string 'belongs_to'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['book_id'], name: 'index_line_items_on_book_id'
+  end
+
   add_foreign_key 'books', 'categories'
+  add_foreign_key 'line_items', 'books'
 end

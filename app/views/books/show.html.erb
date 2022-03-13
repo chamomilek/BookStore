@@ -6,7 +6,9 @@
   <%= book.description %><br>
   <p><%= image_tag src = book.images%></p>
   <label for="price">Price:</label>
-  <%= book.price %><br>
+    <%= number_to_currency(book.price) %>
+  <%= button_to 'Add to Cart', line_items_path(book_id: book) %>
+  <br>
   <label for="pages">Pages:</label>
   <%= book.pages %><br>
   <label for="language">Language:</label>

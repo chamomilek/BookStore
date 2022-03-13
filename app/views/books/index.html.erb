@@ -12,7 +12,9 @@
   </thead>
 
   <tbody>
+  <%cache @books do %>
   <% @books.each do |book| %>
+  <%cache book do %>
     <tr>
       <td><%= book.title %></td>
       <td><%= book.description %></td>
@@ -23,7 +25,9 @@
         turbo_confirm: "Are you sure?"
       } %></td>
     </tr>
+  <%end%>
   <% end %>
+    <%end %>
   </tbody>
 </table>
 
