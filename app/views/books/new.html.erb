@@ -50,12 +50,14 @@
   </div>
 
   <div>
-    <%= form.label :category_id %><br>
-    <%#= form.select :category_id, [category[:genre], :category_id] %>
-    <%= form.select :category_id, [["Best-seller", 1], ["Imaginative literature", 2], ["Fantasy", 3], ["Psychology", 4], ["Cooking", 5], ["History", 6], ["Detectives", 20]] %>
-  </div>
-
-
+    <%= form.label :category %><br>
+    <%= form.collection_select :category_id, Category.order(:genre), :id, :genre %>
+    <%# category = Category.includes(:books).distinct.limit(10)%>
+    <%#category.each do |cat|%>
+    <%#=form.select :category_id,  [cat.genre]%>
+    <%#end%>
+     <%#= form.select :category_id, [["Best-seller", 1], ["Imaginative literature", 2], ["Fantasy", 3], ["Psychology", 4], ["Cooking", 5], ["History", 6], ["Detectives", 20]] %>
+  </div><br>
   <%= form.submit "Add book" %>
 
 <% end %>

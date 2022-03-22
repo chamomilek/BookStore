@@ -4,7 +4,6 @@ one:
   book: two
   cart: one
 
-
 two:
   book: two
   cart: two
