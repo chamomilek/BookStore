@@ -22,7 +22,7 @@ class BooksController < ApplicationController
     if @book.save
       flash[:notice] = 'Book was successfully created.'
       # redirect_to @book
-      redirect_to books_path
+      redirect_to books_url
     else
       render :new
     end
@@ -36,7 +36,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:category_id])
 
     if @book.update(book_params)
-      redirect_to books_path
+      redirect_to books_url
     else
       render :edit, status: :unprocessable_entity
 
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:category_id])
     @book.destroy
-    redirect_to books_path, status: :see_other
+    redirect_to books_url, status: :see_other
   end
 
   private

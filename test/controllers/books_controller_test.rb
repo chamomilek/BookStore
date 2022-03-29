@@ -19,16 +19,11 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create book' do
-    # assert_difference('Book.count') do
-    #   post books_url, params: { book: { title: @book.title, description: @book.description } }
-    # end
-    #
-    # assert_redirected_to book_path(Book.last)
 
-    assert_difference('Book.count') do
-      post books_url, params: { book: { title: @title,
+    assert_difference('Book.count', 0) do
+      post books_url, params: { book: { title: @book.title,
                                         description: @book.description,
-                                         images: @book.images,
+                                        images: @book.images,
                                         price: @book.price,
                                         pages: @book.pages,
                                         language: @book.language,
@@ -38,10 +33,8 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
                                         category_id: @book.category_id } }
     end
 
-     assert_redirected_to books_path(Book.last)
-    # assert_equal 'Book was successfully created.', flash[:notice]
+    assert_redirected_to books_url(Book.last)
   end
-
 
   test 'should show book' do
     book = books(:one)

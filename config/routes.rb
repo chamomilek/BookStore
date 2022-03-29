@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   resources :books, param: :category_id
   resources :line_items, shallow: true
   resources :carts
+  resources :orders
 end
