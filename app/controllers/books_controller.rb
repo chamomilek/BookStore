@@ -21,8 +21,9 @@ class BooksController < ApplicationController
     @book = Book.new book_params
     if @book.save
       flash[:notice] = 'Book was successfully created.'
-      # redirect_to @book
-      redirect_to books_url
+      redirect_to @book
+       # redirect_to @books
+      # render books_url
     else
       render :new
     end
@@ -36,7 +37,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:category_id])
 
     if @book.update(book_params)
-      redirect_to books_url
+      redirect_to @book
+      # redirect_to books_url
     else
       render :edit, status: :unprocessable_entity
 
