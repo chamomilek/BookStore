@@ -18,8 +18,8 @@
     <tr>
       <td><%= book.title %></td>
       <td><%= book.description %></td>
-      <td><%= link_to "Show", controller: "books", action: "show", category_id: book.category_id %></td>
-      <td><%= link_to "Edit", controller: "books", category_id: book.id, action: "edit" %></td>
+      <td><%= link_to "Show", controller: "books", action: "show", id: book.id %></td>
+      <td><%= link_to "Edit", controller: "books", id: book.id, action: "edit" %></td>
       <td><%= link_to "Destroy", book_path(book), data: {
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"

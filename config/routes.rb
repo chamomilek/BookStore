@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   # get "/categories/create", to: "api/v1/categories#create"
   # get "/categories/:genre", to: "api/v1/categories#show"
 
-  resources :categories, shallow: true
-  resources :books, param: :category_id
+  resources :categories
+  resources :books
   resources :line_items, shallow: true
   resources :carts
   resources :orders

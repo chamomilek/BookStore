@@ -40,24 +40,23 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   # end
 
   test 'should create book' do
-    get "/books/new"
+    get '/books/new'
     # assert_difference('Book.count', 0) do
-      post "/books", params: { book: { title: @book.title,
-                                        description: @book.description,
-                                        images: @book.images,
-                                        price: @book.price,
-                                        pages: @book.pages,
-                                        language: @book.language,
-                                        dimensions: @book.dimensions,
-                                        publication_date: @book.publication_date,
-                                        weight: @book.weight,
-                                        category_id: @book.category_id } }
+    post '/books', params: { book: { title: @book.title,
+                                     description: @book.description,
+                                     images: @book.images,
+                                     price: @book.price,
+                                     pages: @book.pages,
+                                     language: @book.language,
+                                     dimensions: @book.dimensions,
+                                     publication_date: @book.publication_date,
+                                     weight: @book.weight,
+                                     category_id: @book.category_id } }
 
     # assert_response :redirect
     # follow_redirect!
     assert_response :success
-    end
-
+  end
 
   test 'should show book' do
     book = books(:one)

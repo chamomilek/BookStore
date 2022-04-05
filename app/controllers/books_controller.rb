@@ -6,11 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = if params.key?(:category_id)
-              Book.where(category_id: params[:category_id])
-            else
-              Book.find(params[:id])
-            end
+    @book = Book.find(params[:id])
   end
 
   def new
@@ -22,7 +18,7 @@ class BooksController < ApplicationController
     if @book.save
       flash[:notice] = 'Book was successfully created.'
       redirect_to @book
-       # redirect_to @books
+      # redirect_to @books
       # render books_url
     else
       render :new
@@ -30,11 +26,11 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find(params[:category_id])
+    @book = Book.find(params[:id])
   end
 
   def update
-    @book = Book.find(params[:category_id])
+    @book = Book.find(params[:id])
 
     if @book.update(book_params)
       redirect_to @book
@@ -46,7 +42,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = Book.find(params[:category_id])
+    @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_url, status: :see_other
   end

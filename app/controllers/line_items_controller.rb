@@ -21,7 +21,6 @@ class LineItemsController < ApplicationController
   # GET /line_items/1/edit
   def edit; end
 
-
   # POST /line_items or /line_items.json
   def create
     # @line_item = LineItem.new(line_item_params)

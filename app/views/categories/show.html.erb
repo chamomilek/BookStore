@@ -1,3 +1,37 @@
-<h1><%= @category.genre %></h1>
+<% @category.each do |category| %>
+<h1><%= category.genre %></h1>
 
-<p><%= @category.image_url %></p>
+<%category.books.each do |book| %>
+  <h2><%= book.title%></h2>
+  <ul>
+    <label for="description">Description:</label>
+    <%= book.description %><br>
+    <p>
+      <%= image_tag(book.images, class: 'list_image',  :size => "150x200") %> </p>
+    <td><%= link_to "Show more info", controller: "books", action: "show", id: book.id %></td>
+    <br>
+<!--    <td><%#= button_to "Show more info",:controller => "books", :action => "show" %></td>-->
+    <label for="price">Price:</label>
+    <%= number_to_currency(book.price) %>
+    <%= button_to 'Add to Cart', line_items_path(category_id: book) %>
+    <br>
+    <label for="pages">Pages:</label>
+    <%= book.pages %><br>
+    <label for="language">Language:</label>
+    <%= book.language %><br>
+    <label for="dimensions">Dimensions:</label>
+    <%= book.dimensions %><br>
+    <label for="publications_date">Publication date:</label>
+    <%= book.publication_date %><br>
+    <label for="weight">Weight:</label>
+    <%= book.weight %>
+  </ul>
+<%end %>
+<%end %>
+
+<%= link_to "To categories", categories_path %>
+<br>
+<%= link_to "To books", books_path %>
+
+
+

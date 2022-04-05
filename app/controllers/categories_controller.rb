@@ -6,7 +6,14 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(:books).find([params[:id]])
+    # @category = Category.find(params[:id])
+    # @book = if params.key?(:category_id)
+    #           Book.where(category_id: params[:category_id])
+    #         else
+    #           Book.find(params[:id])
+    #         end
+    # @book = Book.where(category_id: params[:category_id])
   end
 
   def new
