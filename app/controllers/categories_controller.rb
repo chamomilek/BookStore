@@ -3,6 +3,7 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
+    # @image_element = @category.image_elements.build
   end
 
   def show
@@ -48,10 +49,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:genre, :image_url)
+    params.require(:category).permit(:genre, :image_url, :image)
   end
 
-  # def options
-  #   @options ||= {include: %i[books]}
-  # end
 end

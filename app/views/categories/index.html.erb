@@ -6,8 +6,13 @@
   <% @categories.each do |category| %>
     <td>
       <%= link_to category.genre, controller: "categories", action: "show", id: category.id%>
+      <%if category.image.attached?%>
+        <%= image_tag(category.image) %>
+        <%else %>
+      <%= image_tag(category.image_url, class: 'list_image',  :size => "150x200") %> <br>
+      <% end %>
       <%#= link_to category.genre, controller: "books", action: "show", category_id: category.id%>
-        <%= image_tag(category.image_url, class: 'list_image',  :size => "150x200") %> <br>
+<!--        <%#= image_tag(category.image_url, class: 'list_image',  :size => "150x200") %> <br>-->
      <%= link_to "Destroy", category_path(category), data: {
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"

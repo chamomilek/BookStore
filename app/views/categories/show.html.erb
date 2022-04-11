@@ -7,7 +7,11 @@
     <label for="description">Description:</label>
     <%= book.description %><br>
     <p>
-      <%= image_tag(book.images, class: 'list_image',  :size => "150x200") %> </p>
+      <%if book.image.attached?%>
+        <%= image_tag(book.image, :size => "150x200") %>
+      <%else %>
+        <%= image_tag(book.images, class: 'list_image',  :size => "150x200") %> </p>
+      <% end %>
     <td><%= link_to "Show more info", controller: "books", action: "show", id: book.id %></td>
     <br>
 <!--    <td><%#= button_to "Show more info",:controller => "books", :action => "show" %></td>-->
