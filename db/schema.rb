@@ -10,19 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_133148) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_10_174013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "action_text_rich_texts", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "body"
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -82,15 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_133148) do
     t.string "photo_name"
   end
 
-  create_table "image_elements", force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "book_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_image_elements_on_book_id"
-    t.index ["category_id"], name: "index_image_elements_on_category_id"
-  end
-
   create_table "line_items", force: :cascade do |t|
     t.bigint "book_id", null: false
     t.integer "cart_id"
@@ -115,8 +96,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_133148) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "books", "categories"
-  add_foreign_key "image_elements", "books"
-  add_foreign_key "image_elements", "categories"
   add_foreign_key "line_items", "books"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "orders"

@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :line_items, shallow: true
   resources :carts
   resources :orders
+  get 'search', to: "books#search"
 end

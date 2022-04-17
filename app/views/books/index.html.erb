@@ -1,5 +1,13 @@
 <h1>Listing Books</h1>
 
+<%= form_tag books_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag  "Search" %>
+  <%end %>
+<!--<form class = "full_search" action = "/search">-->
+<!--  <input class = "search" name="q" type="text" placeholder="Search" aria-label="Search">-->
+<!--  <button class = "btn_search" type="submit">Search</button>-->
+<!--</form  >-->
 <table>
   <thead>
   <tr>

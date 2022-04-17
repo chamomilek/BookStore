@@ -2,7 +2,8 @@
 
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.where(["title LIKE ?","%#{params[:search]}%"])
+    # @books = Book.all
   end
 
   def show
@@ -39,6 +40,11 @@ class BooksController < ApplicationController
       render :edit, status: :unprocessable_entity
 
     end
+  end
+
+  def search
+    # @books = Book.where["title LIKE ?","%#{params[:search]}%"]
+    # @books = Book.where("title LIKE ?", "%" +  params[:q] + "%")
   end
 
   def destroy
