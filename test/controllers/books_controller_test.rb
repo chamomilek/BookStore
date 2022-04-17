@@ -18,27 +18,6 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test 'should create book' do
-  #
-  #   assert_difference('Book.count', 0) do
-  #     post books_url, params: { book: { title: @book.title,
-  #                                       description: @book.description,
-  #                                       images: @book.images,
-  #                                       price: @book.price,
-  #                                       pages: @book.pages,
-  #                                       language: @book.language,
-  #                                       dimensions: @book.dimensions,
-  #                                       publication_date: @book.publication_date,
-  #                                       weight: @book.weight,
-  #                                       category_id: @book.category_id } }
-  #   end
-  #   assert_response :redirect
-  #
-  #   assert_redirected_to @book
-  #   binding.pry
-  #   #  assert_redirected_to books_url(Book.last)
-  # end
-
   test 'should create book' do
     get '/books/new'
     # assert_difference('Book.count', 0) do
@@ -83,6 +62,29 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to book_url(@book)
     # @book.reload
     # assert_equal 'updated', @book.title
+  end
+
+  test 'book price must be positive' do
+    book = Book.new(title: 'My Book Title',
+                    description: 'yyy',
+                    images: 'zzz.jpg',
+                    price: 9.99,
+                    pages: 282,
+                    language: 'en',
+                    dimensions: @book.dimensions,
+                    publication_date: @book.publication_date,
+                    weight: @book.weight,
+                    category_id: @book.category_id)
+    book.price = -1
+    assert book.invalid?
+    assert_equal ['must be greater than or equal to 0.01'],
+                 book.errors[:price]
+    book.price = 0
+    assert book.invalid?
+    assert_equal ['must be greater than or equal to 0.01'],
+                 book.errors[:price]
+    book.price = 1
+    assert book.valid?
   end
 
   test 'cant delete book in cart' do

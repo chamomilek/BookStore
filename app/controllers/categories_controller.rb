@@ -26,18 +26,24 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to @category
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
   def update
-    category = Category.find_by(genre: params[:genre])
+    @category = Category.find_by(genre: params[:genre])
 
-    if category.update(category_params)
-      render json: CategorySerializer.new(category, options).serialized_json
+    if @category.update(category_params)
+      redirect_to @category
+      # redirect_to books_url
     else
-      render json: { error: category.errors.messages }, status: 422
+      render :edit, status: :unprocessable_entity
+
     end
+    #   render json: CategorySerializer.new(category, options).serialized_json
+    # else
+    #   render json: { error: category.errors.messages }, status: 422
+    # end
   end
 
   def destroy
@@ -51,5 +57,4 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:genre, :image_url, :image)
   end
-
 end

@@ -1,18 +1,5 @@
-<!--<div id="<%#= dom_id line_item %>">-->
-<!--  <p>-->
-<!--    <strong>Book:</strong>-->
-    <%#= line_item.book_id %>
-<!--  </p>-->
-
-<!--  <p>-->
-<!--    <strong>Cart:</strong>-->
-    <%#= line_item.cart_id %>
-<!--  </p>-->
-
-<!--</div>-->
-
-<ul>
-  <% @cart.line_items.each do |item| %>
-    <li><%= item.quantity %> &times; <%= item.book.title %> <%= number_to_currency(item.total_price) %></li>
-  <%end %>
-</ul>
+<tr>
+  <td class="quantity"><%= line_item.quantity %></td>
+  <td><%= line_item.book.title %></td>
+  <td class="price"><%= number_to_currency(line_item.total_price) %></td>
+</tr>

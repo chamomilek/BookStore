@@ -34,7 +34,9 @@ gem 'nokogiri'
 gem 'rack', '~> 2.0', '>= 2.0.1'
 
 gem 'activerecord'
+gem 'dragonfly', '~> 1.4.0'
 gem 'fast_jsonapi'
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
 gem 'parallel'
 gem 'pry', '~> 0.14.1'
 gem 'rspec', '~> 3.11'
@@ -44,8 +46,6 @@ gem 'rspec-mocks', '~> 3.11'
 gem 'rspec-support', '~> 3.11'
 gem 'rubocop', '~> 1.26', require: false
 gem 'webpacker'
-gem 'dragonfly', '~> 1.4.0'
-gem 'image_processing', '~> 1.12', '>= 1.12.1'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

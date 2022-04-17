@@ -12,7 +12,14 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'requires item in cart' do
+    get new_order_url
+    assert_redirected_to categories_url
+    assert_equal flash[:notice], 'Your cart is empty'
+  end
+
   test 'should get new' do
+    post line_items_url, params: { category_id: categories(:one).id }
     get new_order_url
     assert_response :success
   end
