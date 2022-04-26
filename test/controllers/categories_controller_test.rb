@@ -29,7 +29,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show category' do
-    category = categories(:one)
+    category = (categories(:one) || category(:tree))
     get category_url(category)
     assert_response :success
   end

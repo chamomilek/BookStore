@@ -7,3 +7,7 @@ one:
 two:
   genre: MyString1
   image_url: lorem.jpg
+
+tree:
+  genre: MyString1
+  image: lorem.jpg
